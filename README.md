@@ -6,12 +6,16 @@ Tencent OS Auto genrate OTA Package tools<br>
 
 + git clone:
 
-    git clone https://github.com/TOSPlus/ota-tools
+```
+git clone https://github.com/TOSPlus/ota-tools
+```
 
 + 赋权
 
-    chmod 777 build -R
-    chmod 777 make_ota.sh 
+```
+        chmod 777 build -R
+        chmod 777 make_ota.sh 
+```
 
 + 找到target-files.zip包
 
