@@ -14,7 +14,7 @@ git clone https://github.com/TOSPlus/ota-tools
 
 ```
 chmod 777 build -R
-chmod 777 make_ota.sh 
+chmod 777 make_ota
 ```
 
 + 找到target-files.zip包
@@ -36,6 +36,10 @@ chmod 777 make_ota.sh
 
 那么使用命令：
 
-    ./make_ota.sh 20151108_target-files.zip 20151115_target-files.zip
+    ./make_ota 20151108_target-files.zip 20151115_target-files.zip
 
 即可以生成差分包，So，enjoy
+
+如果需要生成特定OTA包，可以指定自定义的releasetools.py在这个里面增加回调函数。指定releasetools.py和命名为 -s例如：
+
+        ./make_ota -s releasetools.py 20151108_target-files.zip 20151115_target-files.zip
