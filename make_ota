@@ -1,0 +1,35 @@
+#!/usr/bin/python
+#-*- coding:utf-8 -*-
+#此脚本使用在Android 各项处理上
+#制作者：振云
+import commands
+import argparse
+import os
+
+
+#-------------参数区---------------------
+option=argparse.ArgumentParser(description='this script is used for make ota package')
+option.add_argument('-s',type=str,help='input a releasetools.py instead of defult')
+option.add_argument('old_zip',type=str,help='input old zip')
+option.add_argument('new_zip',type=str,help='input new zip')
+options=option.parse_args()
+#-------------函数区---------------------
+#-------------流程区---------------------
+# print options.s
+#if options.s:
+#	print options.s
+#print options.old_zip
+#print options.new_zip
+local_path=os.getcwd()
+cmd='/bin/bash -exec "set +x;source '+local_path+'/build/config.sh"'
+#print cmd
+os.system(cmd)
+(status,output)=commands.getstatusoutput(cmd)
+print status,output
+if options.s:
+	cmd='./build/tools/releasetools/ota_from_target_files -i '+options.old_zip+' -n -k ./build/security/testkey --override_device auto -s '+options.s+' '+options.new_zip+' output_ota.zip'
+else:
+	cmd='./build/tools/releasetools/ota_from_target_files -i '+options.old_zip+' -n -k ./build/security/testkey --override_device auto '+options.new_zip+' output_ota.zip'
+#print cmd
+(status,output)=commands.getstatusoutput(cmd)
+print status,output
