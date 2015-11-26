@@ -42,7 +42,7 @@ chmod 777 make_ota
 
 部分机友反馈了‘PORT_ROOT'报错的问题，有可能是使用了之后又移动了这个文件夹导致，这个时候只需要在执行上一步之前先执行一次:
 
-    . buuld/config.sh
+    . build/config.sh
 
 就可以了
 
