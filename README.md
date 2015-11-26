@@ -40,6 +40,12 @@ chmod 777 make_ota
 
 即可以生成差分包，So，enjoy
 
+部分机友反馈了‘PORT_ROOT'报错的问题，有可能是使用了之后又移动了这个文件夹导致，这个时候只需要在执行上一步之前先执行一次:
+
+    . buuld/config.sh
+
+就可以了
+
 如果需要生成特定OTA包，可以指定自定义的releasetools.py在这个里面增加回调函数。指定releasetools.py和命名为 -s例如：
 
         ./make_ota -s releasetools.py 20151108_target-files.zip 20151115_target-files.zip
